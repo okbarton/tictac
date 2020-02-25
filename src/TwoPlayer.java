@@ -9,8 +9,10 @@ public class TwoPlayer extends JPanel implements ActionListener {
 
     JButton btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9;
     boolean PlayerOneTurn;
-    String PlayerOneName;
-    String PlayerTwoName;
+    static String PlayerOneName;
+    static String PlayerTwoName;
+    int PlayerOneScore;
+    int PlayerTwoScore;
     String TicTac;
     boolean Start = true;
     int count=0;
@@ -240,12 +242,15 @@ public class TwoPlayer extends JPanel implements ActionListener {
 
     private void Win(){
         if (WinningChar.equals("X")){
-            JOptionPane.showMessageDialog(null, "Player One Wins");
+            JOptionPane.showMessageDialog(null, PlayerOneName+" Wins");
+            PlayerOneScore++;
 
         }else{
-            JOptionPane.showMessageDialog(null, "Player Two Wins");
+            JOptionPane.showMessageDialog(null, PlayerTwoName+" Wins");
+            PlayerTwoScore++;
 
         }
+        JOptionPane.showMessageDialog(null, "The Current Score is,\n"+PlayerOneName+": "+PlayerOneScore+"\n"+PlayerTwoName+": "+PlayerTwoScore);
         int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Play Again","Again?",JOptionPane.YES_NO_OPTION);
         if(dialogResult == JOptionPane.YES_OPTION) {
             Reset();

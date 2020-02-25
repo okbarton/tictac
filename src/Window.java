@@ -109,7 +109,7 @@ public class Window extends JFrame {
         //Packs it all together
         jf.pack();
         //Set the size needed
-        jf.setSize(600, 600);
+        jf.setSize(750, 500);
         //Allows the user to move the pane
         jf.setLocationRelativeTo(null);
     }
