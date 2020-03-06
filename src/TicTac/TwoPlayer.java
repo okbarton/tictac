@@ -1,9 +1,11 @@
 package TicTac;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class TwoPlayer extends JPanel implements ActionListener {
 
@@ -14,6 +16,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
     int PlayerOneScore;
     int PlayerTwoScore;
     String TicTac;
+    ImageIcon TicTac2;
     boolean Start = true;
     int count=0;
     Color Colour;
@@ -28,11 +31,14 @@ public class TwoPlayer extends JPanel implements ActionListener {
     boolean btn8used;
     boolean btn9used;
     int drawCount;
+    Image cross = ImageIO.read(getClass().getResource("Images/Crosses.jpg"));
+    Image nought = ImageIO.read(getClass().getResource("Images/Noughts.jpg"));
+    Image blank = ImageIO.read(getClass().getResource("Images/Nothing.jpg"));
 
 
 
 
-    TwoPlayer(){
+    TwoPlayer() throws IOException {
 
 
         //Setting the layout to "Flow"
@@ -40,7 +46,10 @@ public class TwoPlayer extends JPanel implements ActionListener {
         //Making a JPanel within the layout with a TicTac.Grid Layout within it.
         JPanel inner = new JPanel((new GridLayout(3, 3, 20, 20)));
 
+
+
         //Makes buttons to be used later with text on them
+
 
         btn1 = new JButton();
         btn2 = new JButton();
@@ -52,6 +61,15 @@ public class TwoPlayer extends JPanel implements ActionListener {
         btn8 = new JButton();
         btn9 = new JButton();
 
+        btn1.setIcon(new ImageIcon(blank));
+        btn2.setIcon(new ImageIcon(blank));
+        btn3.setIcon(new ImageIcon(blank));
+        btn4.setIcon(new ImageIcon(blank));
+        btn5.setIcon(new ImageIcon(blank));
+        btn6.setIcon(new ImageIcon(blank));
+        btn7.setIcon(new ImageIcon(blank));
+        btn8.setIcon(new ImageIcon(blank));
+        btn9.setIcon(new ImageIcon(blank));
         //Sets the size of the title
         btn1.setPreferredSize(new Dimension(150, 150));
         btn2.setPreferredSize(new Dimension(150, 150));
@@ -65,15 +83,15 @@ public class TwoPlayer extends JPanel implements ActionListener {
 
 
 
-        btn1.setFont(new Font("Serif", Font.BOLD, 50));
-        btn2.setFont(new Font("Serif", Font.BOLD, 50));
-        btn3.setFont(new Font("Serif", Font.BOLD, 50));
-        btn4.setFont(new Font("Serif", Font.BOLD, 50));
-        btn5.setFont(new Font("Serif", Font.BOLD, 50));
-        btn6.setFont(new Font("Serif", Font.BOLD, 50));
-        btn7.setFont(new Font("Serif", Font.BOLD, 50));
-        btn8.setFont(new Font("Serif", Font.BOLD, 50));
-        btn9.setFont(new Font("Serif", Font.BOLD, 50));
+        btn1.setFont(new Font("Serif", Font.BOLD, 1));
+        btn2.setFont(new Font("Serif", Font.BOLD, 1));
+        btn3.setFont(new Font("Serif", Font.BOLD, 1));
+        btn4.setFont(new Font("Serif", Font.BOLD, 1));
+        btn5.setFont(new Font("Serif", Font.BOLD, 1));
+        btn6.setFont(new Font("Serif", Font.BOLD, 1));
+        btn7.setFont(new Font("Serif", Font.BOLD, 1));
+        btn8.setFont(new Font("Serif", Font.BOLD, 1));
+        btn9.setFont(new Font("Serif", Font.BOLD, 1));
         //Makes everything visible to the user
         inner.add(btn1);
         inner.add(btn2);
@@ -144,23 +162,27 @@ public class TwoPlayer extends JPanel implements ActionListener {
         if (Start) {
             if (PlayerOneTurn) {
                 TicTac = "X";
+                TicTac2 = new ImageIcon(cross);
                 count=2;
                 Colour = (Color.BLUE);
             } else {
                 TicTac = "O";
+                TicTac2 = new ImageIcon(nought);
                 count=3;
                 Colour = (Color.RED);
             }
             Start = false;
         }
         if(count%2==0){
-            TicTac="O";
+            TicTac = "O";
+            TicTac2 = new ImageIcon(nought);
             count++;
             Colour = (Color.RED);
 
 
         }else{
-            TicTac="X";
+            TicTac = "X";
+            TicTac2 = new ImageIcon(cross);
             count++;
             Colour = (Color.BLUE);
 
@@ -282,6 +304,15 @@ public class TwoPlayer extends JPanel implements ActionListener {
         btn7.setText("");
         btn8.setText("");
         btn9.setText("");
+        btn1.setIcon(new ImageIcon(blank));
+        btn2.setIcon(new ImageIcon(blank));
+        btn3.setIcon(new ImageIcon(blank));
+        btn4.setIcon(new ImageIcon(blank));
+        btn5.setIcon(new ImageIcon(blank));
+        btn6.setIcon(new ImageIcon(blank));
+        btn7.setIcon(new ImageIcon(blank));
+        btn8.setIcon(new ImageIcon(blank));
+        btn9.setIcon(new ImageIcon(blank));
     }
 
 
@@ -292,6 +323,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
             if (!btn1used) {
                 CycleTurn();
                 btn1.setText(TicTac);
+                btn1.setIcon(TicTac2);
                 btn1.setForeground(Colour);
                 btn1used = true;
                 CheckWin();
@@ -301,7 +333,9 @@ public class TwoPlayer extends JPanel implements ActionListener {
         if (actionEvent.getActionCommand().equals("btn2")) {
             if (!btn2used) {
                 CycleTurn();
+
                 btn2.setText(TicTac);
+                btn2.setIcon(TicTac2);
                 btn2.setForeground(Colour);
                 btn2used = true;
                 CheckWin();
@@ -311,6 +345,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
             if (!btn3used) {
                 CycleTurn();
                 btn3.setText(TicTac);
+                btn3.setIcon(TicTac2);
                 btn3.setForeground(Colour);
                 btn3used = true;
                 CheckWin();
@@ -320,6 +355,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
             if (!btn4used) {
                 CycleTurn();
                 btn4.setText(TicTac);
+                btn4.setIcon(TicTac2);
                 btn4.setForeground(Colour);
                 btn4used = true;
                 CheckWin();
@@ -329,6 +365,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
             if (!btn5used) {
                 CycleTurn();
                 btn5.setText(TicTac);
+                btn5.setIcon(TicTac2);
                 btn5.setForeground(Colour);
                 btn5used = true;
                 CheckWin();
@@ -338,6 +375,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
             if (!btn6used) {
                 CycleTurn();
                 btn6.setText(TicTac);
+                btn6.setIcon(TicTac2);
                 btn6.setForeground(Colour);
                 btn6used = true;
                 CheckWin();
@@ -347,6 +385,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
             if (!btn7used) {
                 CycleTurn();
                 btn7.setText(TicTac);
+                btn7.setIcon(TicTac2);
                 btn7.setForeground(Colour);
                 btn7used = true;
                 CheckWin();
@@ -357,6 +396,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
             if (!btn8used) {
                 CycleTurn();
                 btn8.setText(TicTac);
+                btn8.setIcon(TicTac2);
                 btn8.setForeground(Colour);
                 btn8used = true;
                 CheckWin();
@@ -367,6 +407,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
             if (!btn9used) {
                 CycleTurn();
                 btn9.setText(TicTac);
+                btn9.setIcon(TicTac2);
                 btn9.setForeground(Colour);
                 btn9used = true;
                 CheckWin();

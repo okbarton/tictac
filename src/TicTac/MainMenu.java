@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.text.ParseException;
 
 public class MainMenu extends JPanel implements ActionListener {
@@ -62,7 +63,12 @@ public class MainMenu extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         Window w = new Window();
 
-        TwoPlayer two = new TwoPlayer();
+        TwoPlayer two = null;
+        try {
+            two = new TwoPlayer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (actionEvent.getActionCommand().equals("one")) {
             //Opens the corresponding menu
             w.startOne();

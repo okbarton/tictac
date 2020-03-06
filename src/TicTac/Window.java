@@ -1,6 +1,7 @@
 package TicTac;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.text.ParseException;
 
 public class Window extends JFrame {
@@ -12,12 +13,12 @@ public class Window extends JFrame {
     static JPanel twoplayer;
 
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, IOException {
         Window w = new Window();
         w.init();
     }
 
-    private void init() throws ParseException {
+    private void init() throws ParseException, IOException {
 
         jf = new JFrame();
         main= new MainMenu();
