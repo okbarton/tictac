@@ -1,9 +1,9 @@
+package TicTac;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 public class TwoPlayer extends JPanel implements ActionListener {
 
@@ -37,7 +37,7 @@ public class TwoPlayer extends JPanel implements ActionListener {
 
         //Setting the layout to "Flow"
         this.setLayout((new FlowLayout(FlowLayout.CENTER)));
-        //Making a JPanel within the layout with a Grid Layout within it.
+        //Making a JPanel within the layout with a TicTac.Grid Layout within it.
         JPanel inner = new JPanel((new GridLayout(3, 3, 20, 20)));
 
         //Makes buttons to be used later with text on them

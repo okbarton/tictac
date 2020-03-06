@@ -1,3 +1,5 @@
+package TicTac;
+
 public class Grid {
 	
 	public int value[][] = new int [3][3];

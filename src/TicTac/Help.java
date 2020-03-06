@@ -1,4 +1,4 @@
-//Imports the required packages
+package TicTac;//Imports the required packages
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;

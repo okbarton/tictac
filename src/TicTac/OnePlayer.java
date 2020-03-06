@@ -1,9 +1,10 @@
+package TicTac;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 
 public class OnePlayer {
 	
@@ -98,7 +99,7 @@ public class OnePlayer {
 		rePaint(mainGrid);
 		
 		if(mainGrid.findIfWon() == 1) {
-			JOptionPane.showMessageDialog(null, "Computer Wins");
+			JOptionPane.showMessageDialog(null, "TicTac.Computer Wins");
 			int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Play Again","Again?",JOptionPane.YES_NO_OPTION);
 			if(dialogResult == JOptionPane.YES_OPTION) {
 				Window w = new Window();

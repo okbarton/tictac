@@ -1,4 +1,4 @@
-
+package TicTac;
 
 import javax.swing.*;
 import java.text.ParseException;
@@ -105,7 +105,7 @@ public class Window extends JFrame {
         //Sets the new JPanel to visible
         jf.setVisible(true);
         //Sets the window title
-        jf.setTitle("Help Section");
+        jf.setTitle("TicTac.Help Section");
         //Packs it all together
         jf.pack();
         //Set the size needed

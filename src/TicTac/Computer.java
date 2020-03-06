@@ -1,3 +1,5 @@
+package TicTac;
+
 class Computer {
 	
 	protected int identity;

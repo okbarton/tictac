@@ -1,11 +1,9 @@
-//Import the required packages
+package TicTac;//Import the required packages
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Scanner;
 
 public class MainMenu extends JPanel implements ActionListener {
 
@@ -18,7 +16,7 @@ public class MainMenu extends JPanel implements ActionListener {
 
         //Setting the layout to "Flow"
         this.setLayout((new FlowLayout(FlowLayout.CENTER)));
-        //Making a JPanel within the layout with a Grid Layout within it.
+        //Making a JPanel within the layout with a TicTac.Grid Layout within it.
         JPanel inner = new JPanel((new GridLayout(5, 1, 15, 20)));
         //Sets the title using the name variable
         title1 = new JLabel("Tic Tac Fantastic");
@@ -31,7 +29,7 @@ public class MainMenu extends JPanel implements ActionListener {
         //Makes buttons to be used later with text on them
         onePlayer = new JButton("One Player");
         twoPlayer = new JButton("Two Player");
-        helpMe = new JButton("Help");
+        helpMe = new JButton("TicTac.Help");
         logOut = new JButton("Log Out");
 
         //Sets the size of the title
