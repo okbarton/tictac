@@ -1,4 +1,4 @@
-package TicTac;//Import the required packages
+package TicTacFantastic;//Import the required packages
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

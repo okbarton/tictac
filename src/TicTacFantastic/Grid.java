@@ -1,4 +1,4 @@
-package TicTac;
+package TicTacFantastic;
 
 public class Grid {
 	

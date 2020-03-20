@@ -1,4 +1,4 @@
-package TicTac;
+package TicTacFantastic;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

@@ -1,4 +1,4 @@
-package TicTac;
+package TicTacFantastic;
 
 import javax.swing.*;
 import java.io.IOException;

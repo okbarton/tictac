@@ -1,4 +1,4 @@
-package TicTac;
+package TicTacFantastic;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 public class OnePlayer {
 	
 	Computer player1 = new Computer(1);
-	JFrame mainFrame = new JFrame("TicTac");
+	JFrame mainFrame = new JFrame("TicTacFantastic");
 	JPanel mainPanel = new JPanel();
 	JPanel buttonPanel = new JPanel();
 	JPanel gamePanel = new JPanel();

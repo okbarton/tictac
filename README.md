@@ -7,6 +7,6 @@ Standard game of TicTacToe using the MinMax algorithm to make it unbeatable
 ##Two Player
 A two player version Dof the game without the AI
 
-##TicTac.Help
+##TicTacFantastic.Help
 Shows how to play TicTacToe
 

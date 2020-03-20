@@ -1,4 +1,4 @@
-package TicTac;
+package TicTacFantastic;
 
 class Computer {
 	
