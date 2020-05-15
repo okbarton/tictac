@@ -1,4 +1,4 @@
-package TicTacFantastic;
+package Minesweeper;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -9,8 +9,7 @@ public class Window extends JFrame {
     static JFrame jf;
     static JPanel main;
     static JPanel help;
-    static JPanel oneplayer;
-    static JPanel twoplayer;
+    static JPanel mine;
 
 
     public static void main(String[] args) throws ParseException, IOException {
@@ -23,7 +22,8 @@ public class Window extends JFrame {
         jf = new JFrame();
         main= new MainMenu();
         help  = new Help();
-        twoplayer = new TwoPlayer();
+        mine  = new Mine();
+
 
         main.setVisible(true);
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -36,8 +36,8 @@ public class Window extends JFrame {
 
     void startMain() {
         //Sets the other JPanels to invisible
-
-        twoplayer.setVisible(false);
+        jf.setVisible(true);
+        mine.setVisible(false);
         help.setVisible(false);
         //Sets this JPanel to visible
         main.setVisible(true);
@@ -48,7 +48,7 @@ public class Window extends JFrame {
         //Sets the new JPanel to visible
         jf.setVisible(true);
         //Sets the window title
-        jf.setTitle("Tic Tac Toe");
+        jf.setTitle("Minesweeper");
         //Packs it all together
         jf.pack();
         //Set the size needed
@@ -58,44 +58,35 @@ public class Window extends JFrame {
     }
 
 
-    void startOne() {
-        //Sets the other JPanels to invisible
-        twoplayer.setVisible(false);
-        main.setVisible(false);
-        help.setVisible(false);
+    void startMine() {
+//        main.setVisible(false);
+//        help.setVisible(false);
+//        //Sets this JPanel to visible
+//        mine.setVisible(true);
+//        //Removes all the content from the pre-existing windows
+//        jf.getContentPane().removeAll();
+//        //Adds the new content as defined above
+//        jf.getContentPane().add(mine);
+//        //Sets the new JPanel to visible
+//        jf.setVisible(true);
+//        //Sets the window title
+//        jf.setTitle("Start!");
+//        //Packs it all together
+//        jf.pack();
+//        //Set the size needed
+//        jf.setSize(530, 550);
+//        //Allows the user to move the pane
+//        jf.setLocationRelativeTo(null);
         jf.setVisible(false);
-        jf.getContentPane().removeAll();
-        //Sets this JPanel to visible
-        OnePlayer op = new OnePlayer();
-        op.getOnePlayer();
+        final int gridSize = 10;
+        SwingUtilities.invokeLater(() -> Mine.run(gridSize));
     }
 
-    void startTwo() {
-        //Sets the other JPanels to invisible
 
-        main.setVisible(false);
-        help.setVisible(false);
-        //Sets this JPanel to visible
-        twoplayer.setVisible(true);
-        //Removes all the content from the pre-existing windows
-        jf.getContentPane().removeAll();
-        //Adds the new content as defined above
-        jf.getContentPane().add(twoplayer);
-        //Sets the new JPanel to visible
-        jf.setVisible(true);
-        //Sets the window title
-        jf.setTitle("Two Player");
-        //Packs it all together
-        jf.pack();
-        //Set the size needed
-        jf.setSize(530, 550);
-        //Allows the user to move the pane
-        jf.setLocationRelativeTo(null);
-    }
 
     void startHelp() {
-
-        twoplayer.setVisible(false);
+        jf.setVisible(true);
+        mine.setVisible(false);
         main.setVisible(false);
         //Sets this JPanel to visible
         help.setVisible(true);

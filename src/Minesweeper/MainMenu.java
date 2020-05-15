@@ -1,4 +1,5 @@
-package TicTacFantastic;//Import the required packages
+package Minesweeper;//Import the required packages
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +11,7 @@ public class MainMenu extends JPanel implements ActionListener {
 
     //Declares the labels and titles to be used
     JLabel title1;
-    JButton onePlayer, twoPlayer,helpMe, logOut;
+    JButton mine,helpMe, logOut;
 
 
     MainMenu() throws ParseException {
@@ -20,7 +21,7 @@ public class MainMenu extends JPanel implements ActionListener {
         //Making a JPanel within the layout with a TicTac.Grid Layout within it.
         JPanel inner = new JPanel((new GridLayout(5, 1, 15, 20)));
         //Sets the title using the name variable
-        title1 = new JLabel("Tic Tac Fantastic");
+        title1 = new JLabel("Minesweeper");
         //Sets the title colour
         title1.setForeground(Color.blue);
         //Sets the title font
@@ -28,8 +29,7 @@ public class MainMenu extends JPanel implements ActionListener {
 
 
         //Makes buttons to be used later with text on them
-        onePlayer = new JButton("One Player");
-        twoPlayer = new JButton("Two Player");
+        mine = new JButton("Start");
         helpMe = new JButton("Help");
         logOut = new JButton("Log Out");
 
@@ -38,17 +38,14 @@ public class MainMenu extends JPanel implements ActionListener {
         //Makes everything visible to the user
         inner.setVisible(true);
         inner.add(title1);
-        inner.add(onePlayer);
-        inner.add(twoPlayer);
+        inner.add(mine);
         inner.add(helpMe);
         inner.add(logOut);
 
 
         //Adding listeners and commands to run when them listeners are triggered
-        onePlayer.addActionListener(this);
-        onePlayer.setActionCommand("one");
-        twoPlayer.addActionListener(this);
-        twoPlayer.setActionCommand("two");
+        mine.addActionListener(this);
+        mine.setActionCommand("mine");
         helpMe.addActionListener(this);
         helpMe.setActionCommand("help");
         logOut.addActionListener(this);
@@ -63,29 +60,16 @@ public class MainMenu extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         Window w = new Window();
 
-        TwoPlayer two = null;
-        try {
-            two = new TwoPlayer();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (actionEvent.getActionCommand().equals("one")) {
+
+        if (actionEvent.getActionCommand().equals("mine")) {
             //Opens the corresponding menu
-            w.startOne();
-
-
-
-        } else if (actionEvent.getActionCommand().equals("two")) {
-            //Opens the corresponding menu
-            two.DecideTurn();
-            w.startTwo();
+            w.startMine();
 
         } else if (actionEvent.getActionCommand().equals("help")) {
             //Opens the corresponding menu
             w.startHelp();
 
         }else if (actionEvent.getActionCommand().equals("quit")) {
-            //Opens the corresponding menu
             Controller.Window window = new Controller.Window();
             try {
                 window.init();

@@ -1,16 +1,16 @@
-package TicTacFantastic;//Import the required packages
+package Controller;//Import the required packages
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.text.ParseException;
 
 public class MainMenu extends JPanel implements ActionListener {
 
     //Declares the labels and titles to be used
     JLabel title1;
-    JButton onePlayer, twoPlayer,helpMe, logOut;
+    JButton mine,tictac,snake,space, logOut;
 
 
     MainMenu() throws ParseException {
@@ -18,9 +18,9 @@ public class MainMenu extends JPanel implements ActionListener {
         //Setting the layout to "Flow"
         this.setLayout((new FlowLayout(FlowLayout.CENTER)));
         //Making a JPanel within the layout with a TicTac.Grid Layout within it.
-        JPanel inner = new JPanel((new GridLayout(5, 1, 15, 20)));
+        JPanel inner = new JPanel((new GridLayout(6, 1, 15, 20)));
         //Sets the title using the name variable
-        title1 = new JLabel("Tic Tac Fantastic");
+        title1 = new JLabel("Welcome to Game Centre");
         //Sets the title colour
         title1.setForeground(Color.blue);
         //Sets the title font
@@ -28,9 +28,10 @@ public class MainMenu extends JPanel implements ActionListener {
 
 
         //Makes buttons to be used later with text on them
-        onePlayer = new JButton("One Player");
-        twoPlayer = new JButton("Two Player");
-        helpMe = new JButton("Help");
+        tictac = new JButton("TikTacFantastic");
+        mine = new JButton("Minesweeper");
+        snake = new JButton("Snake");
+        space = new JButton("Space Invaders");
         logOut = new JButton("Log Out");
 
         //Sets the size of the title
@@ -38,19 +39,22 @@ public class MainMenu extends JPanel implements ActionListener {
         //Makes everything visible to the user
         inner.setVisible(true);
         inner.add(title1);
-        inner.add(onePlayer);
-        inner.add(twoPlayer);
-        inner.add(helpMe);
+        inner.add(tictac);
+        inner.add(mine);
+        inner.add(snake);
+        inner.add(space);
         inner.add(logOut);
 
 
         //Adding listeners and commands to run when them listeners are triggered
-        onePlayer.addActionListener(this);
-        onePlayer.setActionCommand("one");
-        twoPlayer.addActionListener(this);
-        twoPlayer.setActionCommand("two");
-        helpMe.addActionListener(this);
-        helpMe.setActionCommand("help");
+        tictac.addActionListener(this);
+        tictac.setActionCommand("tiktac");
+        mine.addActionListener(this);
+        mine.setActionCommand("mine");
+        snake.addActionListener(this);
+        snake.setActionCommand("snake");
+        space.addActionListener(this);
+        space.setActionCommand("space");
         logOut.addActionListener(this);
         logOut.setActionCommand("quit");
 
@@ -63,35 +67,27 @@ public class MainMenu extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         Window w = new Window();
 
-        TwoPlayer two = null;
-        try {
-            two = new TwoPlayer();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (actionEvent.getActionCommand().equals("one")) {
+
+        if (actionEvent.getActionCommand().equals("mine")) {
             //Opens the corresponding menu
-            w.startOne();
+            w.startMineW();
 
-
-
-        } else if (actionEvent.getActionCommand().equals("two")) {
+        } else if (actionEvent.getActionCommand().equals("tiktac")) {
             //Opens the corresponding menu
-            two.DecideTurn();
-            w.startTwo();
+            w.startTicTacW();
 
-        } else if (actionEvent.getActionCommand().equals("help")) {
+        }else if (actionEvent.getActionCommand().equals("snake")) {
             //Opens the corresponding menu
-            w.startHelp();
+            w.startSnakeW();
+
+        }else if (actionEvent.getActionCommand().equals("space")) {
+            //Opens the corresponding menu
+            w.startSpaceW();
 
         }else if (actionEvent.getActionCommand().equals("quit")) {
             //Opens the corresponding menu
-            Controller.Window window = new Controller.Window();
-            try {
-                window.init();
-            }catch(Exception e){
-                System.out.println(e);
-            }
+            System.exit(0);
+
         }
 
     }
