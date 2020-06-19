@@ -13,7 +13,7 @@ public class Help extends JPanel implements ActionListener {
 
         String Display= " You are presented with a board of squares. Some squares contain mines (bombs), others don't.\nIf you click on a square containing a bomb, you lose. If you manage to click all the squares (without clicking on any bombs) you win.\n\n" +
                 "Clicking a square which doesn't have a bomb reveals the number of neighbouring squares containing bombs.\nUse this information plus some guess work to avoid the bombs.\n\n" +
-                "To open a square, point at the square and click on it.\nTo mark a square you think is a bomb, point and right-click (or hover with the mouse and press Space).";
+                "To open a square, point at the square and click on it.";
         //Adds the required Jbuttons
         JButton back;
         back = new JButton("Return");

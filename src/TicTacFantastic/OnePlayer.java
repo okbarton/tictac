@@ -99,7 +99,7 @@ public class OnePlayer {
 		rePaint(mainGrid);
 		
 		if(mainGrid.findIfWon() == 1) {
-			JOptionPane.showMessageDialog(null, "TicTac.Computer Wins");
+			JOptionPane.showMessageDialog(null, "Computer Wins");
 			int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Play Again","Again?",JOptionPane.YES_NO_OPTION);
 			if(dialogResult == JOptionPane.YES_OPTION) {
 				Window w = new Window();

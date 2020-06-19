@@ -20,7 +20,7 @@ public class MainMenu extends JPanel implements ActionListener {
         //Making a JPanel within the layout with a TicTac.Grid Layout within it.
         JPanel inner = new JPanel((new GridLayout(6, 1, 15, 20)));
         //Sets the title using the name variable
-        title1 = new JLabel("Welcome to Game Centre");
+        title1 = new JLabel("Welcome to BRIK Gaming");
         //Sets the title colour
         title1.setForeground(Color.blue);
         //Sets the title font
